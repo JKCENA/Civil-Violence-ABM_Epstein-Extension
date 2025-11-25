@@ -68,7 +68,7 @@ Contains the **raw dataset (Excel)** exported from the simulations for detailed 
 ---
 
 ## 👤 Author
-* **Develop & Research:** [JI HUN KANG/JKCENA]
+* **Develop & Research:** [JI HUN KANG/JKCENA, JUN SEOK KIM]
 * **Contact:** [jihun9965@gmail.com]
 
 *Licensed under the MIT License.*
