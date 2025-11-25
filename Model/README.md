@@ -51,10 +51,10 @@ to spread-activation
     ]
   ]
 end
+```
 
-
-2. Random Jump (Information Diffusion) Information about the rebellion can travel to random agents anywhere on the grid, simulating media or word-of-mouth.
-
+**2. Random Jump (Information Diffusion) Information about the rebellion can travel to random agents anywhere on the grid, simulating media or word-of-mouth.**
+```netlogo
 to random-jump-activation
   if jump-activation? and random 100 < probability-of-jump [
     ; Pick a random inactive agent regardless of location
@@ -67,12 +67,12 @@ to random-jump-activation
     ]
   ]
 end
+```
 
-
-B. Dynamic Legitimacy Feedback (Stage 2)
+###B. Dynamic Legitimacy Feedback (Stage 2)
 In the original model, legitimacy is fixed. Here, government legitimacy (L) decreases dynamically as the number of jailed citizens and rioters increases.
 
-
+``` netlogo
 to update-legitimacy
   let jailed-count count agents with [jail-term > 0]
   let rebellious-count count agents with [ active? ]
@@ -86,10 +86,10 @@ C. Rational Police Agents & Regime Collapse (Stage 2)
 Police agents act rationally based on incentives and risks. If they are overwhelmed by rioters, they stop arresting (quiet? becomes true), which simulates the collapse of state authority.
 
 
+```
+**1. Calculate Risk & Incentive**
 
-1. Calculate Risk & Incentive
-
-
+```
 to calculate-incentive-and-risk
   ; Incentive decreases as Legitimacy drops
   set incentive* government-legitimacy * (1 - perceived-hardship*)
@@ -102,11 +102,11 @@ to calculate-incentive-and-risk
   ; Net Risk calculation
   set net-risk* risk-aversion* * probability-overwhelmed*
 end
+```
 
+**2. Enforce or Go Quiet**
 
-2. Enforce or Go Quiet
-
-to enforce
+```to enforce
   calculate-incentive-and-risk
 
   ; If the incentive to arrest is higher than the risk, enforce the law
@@ -124,7 +124,7 @@ to enforce
     set quiet? true
   ]
 end
-
+```
 
 📊 Simulation Results & Findings
 Original Model: Shows random, sporadic riots that are quickly suppressed. The regime remains stable.
